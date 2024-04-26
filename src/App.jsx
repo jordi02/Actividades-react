@@ -1,14 +1,15 @@
 import './App.css'
-import TableForm from "./component/tableForm/TableForm";
+import Tables from "./component/table/Table";
 
 function App() {
   
+  const netIncomes = [{brand: "McDonalds", income: 1291283}, {brand: "Burger King", income: 1927361}, {brand: "KFC", income: 1098463}];
   
   return (
     
   <>
 
-    <TableForm></TableForm>
+    <Tables netIncomes={netIncomes}></Tables>
 
   </>
 
