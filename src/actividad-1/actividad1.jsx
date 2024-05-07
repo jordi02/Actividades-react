@@ -1,149 +1,89 @@
-// Dada la siguiente watchlist, crear una función que tome el array original
-// y devuelva un arreglo de objetos que solo contenga las películas:
-// 1. Dirigidas por Cristopher Nolan.
-// 2. Con un imdbRating > 8.0
-// El arreglo que se devuelve SOLO DEBE CONTENER el nombre de la película, ningún otra información
-// Es obligatorio para este CC resolverlo con la función map()
-function Acc1() {
-let watchList = [
-	{
-		Title: 'Inception',
-		Year: '2010',
-		Rated: 'PG-13',
-		Released: '16 Jul 2010',
-		Runtime: '148 min',
-		Genre: 'Action, Adventure, Crime',
-		Director: 'Christopher Nolan',
-		Writer: 'Christopher Nolan',
-		Actors: 'Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page, Tom Hardy',
-		Plot:
-			'A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.',
-		Language: 'English, Japanese, French',
-		Country: 'USA, UK',
-		Awards: 'Won 4 Oscars. Another 143 wins & 198 nominations.',
-		Poster:
-			'http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg',
-		Metascore: '74',
-		imdbRating: '8.8',
-		imdbVotes: '1,446,708',
-		imdbID: 'tt1375666',
-		Type: 'movie',
-		Response: 'True',
-	},
-	{
-		Title: 'Interstellar',
-		Year: '2014',
-		Rated: 'PG-13',
-		Released: '07 Nov 2014',
-		Runtime: '169 min',
-		Genre: 'Adventure, Drama, Sci-Fi',
-		Director: 'Christopher Nolan',
-		Writer: 'Jonathan Nolan, Christopher Nolan',
-		Actors: 'Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow',
-		Plot:
-			"A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
-		Language: 'English',
-		Country: 'USA, UK',
-		Awards: 'Won 1 Oscar. Another 39 wins & 132 nominations.',
-		Poster:
-			'http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg',
-		Metascore: '74',
-		imdbRating: '8.6',
-		imdbVotes: '910,366',
-		imdbID: 'tt0816692',
-		Type: 'movie',
-		Response: 'True',
-	},
-	{
-		Title: 'The Dark Knight',
-		Year: '2008',
-		Rated: 'PG-13',
-		Released: '18 Jul 2008',
-		Runtime: '152 min',
-		Genre: 'Action, Adventure, Crime',
-		Director: 'Christopher Nolan',
-		Writer:
-			'Jonathan Nolan (screenplay), Christopher Nolan (screenplay), Christopher Nolan (story), David S. Goyer (story), Bob Kane (characters)',
-		Actors: 'Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine',
-		Plot:
-			'When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.',
-		Language: 'English, Mandarin',
-		Country: 'USA, UK',
-		Awards: 'Won 2 Oscars. Another 146 wins & 142 nominations.',
-		Poster:
-			'http://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg',
-		Metascore: '82',
-		imdbRating: '9.0',
-		imdbVotes: '1,652,832',
-		imdbID: 'tt0468569',
-		Type: 'movie',
-		Response: 'True',
-	},
-	{
-		Title: 'Batman Begins',
-		Year: '2005',
-		Rated: 'PG-13',
-		Released: '15 Jun 2005',
-		Runtime: '140 min',
-		Genre: 'Action, Adventure',
-		Director: 'Christopher Nolan',
-		Writer:
-			'Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)',
-		Actors: 'Christian Bale, Michael Caine, Liam Neeson, Katie Holmes',
-		Plot:
-			'After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from the corruption that Scarecrow and the League of Shadows have cast upon it.',
-		Language: 'English, Urdu, Mandarin',
-		Country: 'USA, UK',
-		Awards: 'Nominated for 1 Oscar. Another 15 wins & 66 nominations.',
-		Poster:
-			'http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg',
-		Metascore: '70',
-		imdbRating: '8.3',
-		imdbVotes: '972,584',
-		imdbID: 'tt0372784',
-		Type: 'movie',
-		Response: 'True',
-	},
-	{
-		Title: 'Avatar',
-		Year: '2009',
-		Rated: 'PG-13',
-		Released: '18 Dec 2009',
-		Runtime: '162 min',
-		Genre: 'Action, Adventure, Fantasy',
-		Director: 'James Cameron',
-		Writer: 'James Cameron',
-		Actors: 'Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang',
-		Plot:
-			'A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.',
-		Language: 'English, Spanish',
-		Country: 'USA, UK',
-		Awards: 'Won 3 Oscars. Another 80 wins & 121 nominations.',
-		Poster:
-			'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg',
-		Metascore: '83',
-		imdbRating: '7.9',
-		imdbVotes: '876,575',
-		imdbID: 'tt0499549',
-		Type: 'movie',
-		Response: 'True',
-	},
-];
+// Nuestro cliente, debido a traumas pasados, está en guerra abierta con todos los usuarios que eligen como nombre de usuario una palabra que contenga la 
+// letra o (sea mayúscula o minúscula).
 
-const returnMovieTitle = (watchlist) => {
-    // Filtrar las películas dirigidas por Christopher Nolan con un imdbRating mayor que 8.0
-    const filteredMovies = watchlist.filter(movie => 
-        movie.Director === 'Christopher Nolan' && parseFloat(movie.imdbRating) > 8.0
-    );
+// Teniendo esto en cuenta, se nos ha pedido que creemos el componente Login.js que contenga un único input donde el usuario ingresa su username y un botón que 
+// diga Registrarse.
 
-    // Utilizar map() para obtener solo los nombres de las películas
-    const movieTitles = filteredMovies.map(movie => movie.Title);
 
-    return movieTitles;
+// Funcionalidades:
+
+// El usuario ingresa su nombre de usuario y apreta en Registrarse. Si las condiciones se cumplen exitosamente, le saldrá el mensaje con una alerta de 
+// JavaScript que diga “¡Usuario registrado correctamente!”
+
+// Además, en un elemento <p> abajo del botón, se debe ir visualizando el valor ingresado a medida que el usuario lo ingresa en el input.
+
+
+// Condiciones
+
+// Si el usuario en algún momento ingresa en el input una o/O se le debe enviar una alerta de JavaScript que diga “Por favor, ¡Nombres de usuario sin la 
+// letra o!”
+
+// Si al hacer click en registrarse, el nombre de usuario está vacío o posee la letra o en su cadena de caracteres, enviar una alerta de JavaScript con el 
+// mensaje
+// “Usuario inválido para registrarse”
+
+
+// Pistas:
+
+// Método para la búsqueda de la letra o acá
+
+// Recordar buscar por mayúscula y por minúscula.
+
+
+
+
+import { useState } from "react";
+import { Form } from "react-bootstrap";
+
+
+function Login() {
+
+    const [userName, setUserName] = useState("")
+
+    const handleInput = (e) => {
+
+        if (e.target.value.toLowerCase().includes("o")) {
+            alert("Por favor, ¡Nombres de usuario sin la letra 'o'!")
+        }
+
+        setUserName(e.target.value)
+
+    }
+
+    const handleSubmit = (e) => {
+        
+        e.preventDefault();
+        
+    };
+
+    const handleRegister = () => {
+        
+        if (userName === "" || userName.toLowerCase().includes("o")) {
+            alert("Usuario inválido para registrarse")
+        } else {
+            alert("¡Usuario registrado correctamente!");
+        }
+        
+    };
+
+    return (
+
+        <>
+
+            <h1>Ingrese su Username</h1>
+
+            <Form onSubmit={handleSubmit}>
+            <div className="input-group mt-5">
+                <input type="text" className="form-control" placeholder="Username aquí..." aria-label="Recipient's username" aria-describedby="button-addon2" onChange={handleInput}/>
+                <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={handleRegister}>Registrarse</button>
+            </div>
+            </Form>
+
+            <p className="text-danger mt-4">{userName}</p>
+
+        </>
+    )
+
 }
 
-const titlesArray = returnMovieTitle(watchList);
-console.log(titlesArray);
-};
-
-export default Acc1
+export default Login
