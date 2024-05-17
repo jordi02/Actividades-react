@@ -1,35 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import List from "./assets/components/list/List";
+import NewTask from "./assets/components/newTask/NewTask";
+
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [listTask, setListTask] = useState([]);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h2 style={{ borderBottom: "2px solid black", paddingBottom: "5px" }}>
+        Lista de tareas
+      </h2>
+      <NewTask listTask={listTask} setListTask={setListTask} />
+      <List listTask={listTask} setListTask={setListTask} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
